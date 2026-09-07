@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atabay Consulting — Partners to Leaders</title>
+<meta name="description" content="Atabay Consulting is a boutique executive search and leadership consulting firm connecting exceptional organizations with outstanding talent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-dark:#122F2C;
+    --teal-dark-2:#0D2523;
+    --cream:#F6F3EC;
+    --cream-2:#EFEAE0;
+    --ink:#182422;
+    --c-teal:#6FA9A1;
+    --c-purple:#8D7CB6;
+    --c-olive:#A7B563;
+    --c-tan:#C89760;
+    --c-coral:#CE7A6B;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+    color:var(--teal-dark);
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  section{padding:96px 0;}
+
+  /* Mosaic swatch strip — echoes the brand mark's color tiles */
+  .swatches{
+    display:flex;
+    height:10px;
+  }
+  .swatches span{flex:1;}
+  .swatches span:nth-child(5n+1){background:var(--c-teal);}
+  .swatches span:nth-child(5n+2){background:var(--c-purple);}
+  .swatches span:nth-child(5n+3){background:var(--c-olive);}
+  .swatches span:nth-child(5n+4){background:var(--c-tan);}
+  .swatches span:nth-child(5n+5){background:var(--c-coral);}
+
+  /* Nav */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(246,243,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--cream-2);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .wordmark{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+  }
+  .wordmark img{
+    height:26px;
+    width:auto;
+    display:block;
+  }
+  .navlinks{
+    display:flex;
+    gap:28px;
+    font-size:14.5px;
+    font-weight:500;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--teal-dark);
+    opacity:0.75;
+    transition:opacity .15s ease;
+  }
+  .navlinks a:hover{opacity:1;}
+
+  /* Hero */
+  .hero{
+    background:var(--teal-dark);
+    color:var(--cream);
+    padding:120px 0 100px;
+  }
+  .hero .logo-plate{
+    background:#fff;
+    display:inline-block;
+    padding:22px 26px;
+    margin-bottom:40px;
+  }
+  .hero .logo-plate img{
+    display:block;
+    height:56px;
+    width:auto;
+  }
+  .hero .eyebrow{
+    color:var(--c-teal);
+    font-size:15px;
+    font-weight:500;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    color:var(--cream);
+    font-size:clamp(40px,6vw,68px);
+    line-height:1.05;
+    max-width:14ch;
+  }
+  .hero .lede{
+    margin-top:28px;
+    max-width:46ch;
+    font-size:19px;
+    color:#CFE0DC;
+  }
+  .hero .tagline{
+    margin-top:44px;
+    font-size:15px;
+    color:#9FC2BB;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .hero .tagline .dot{width:5px;height:5px;border-radius:50%;background:#9FC2BB;}
+
+  /* Section headers */
+  .section-head{
+    max-width:56ch;
+    margin-bottom:52px;
+  }
+  .section-head .kicker{
+    font-size:14px;
+    color:var(--c-coral);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.6vw,38px);
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:#3E4E4B;
+    font-size:17px;
+  }
+
+  /* Why grid */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--cream-2);
+    border:1px solid var(--cream-2);
+  }
+  .why-card{
+    background:var(--cream);
+    padding:32px 28px;
+  }
+  .why-card .mark{
+    width:34px;height:34px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;
+    font-size:15px;
+    margin-bottom:20px;
+  }
+  .why-card h3{font-size:18px;margin-bottom:10px;}
+  .why-card p{color:#4A5B58;font-size:15.5px;}
+
+  /* Services */
+  .services{background:var(--teal-dark-2);}
+  .services .section-head h2,.services .section-head p{color:var(--cream);}
+  .services .section-head p{color:#B9CFCA;}
+  .services .section-head .kicker{color:var(--c-tan);}
+  .service-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.08);
+  }
+  .service-item{
+    background:var(--teal-dark-2);
+    padding:30px 8px;
+    display:flex;
+    gap:20px;
+  }
+  .service-item .num{
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    color:var(--c-teal);
+    min-width:34px;
+  }
+  .service-item h3{
+    color:var(--cream);
+    font-size:18px;
+    margin-bottom:8px;
+  }
+  .service-item p{color:#AEC7C2;font-size:15px;}
+
+  /* Approach timeline */
+  .timeline{
+    border-left:2px solid var(--cream-2);
+    margin-left:18px;
+  }
+  .tl-item{
+    position:relative;
+    padding:0 0 44px 40px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item .dotnum{
+    position:absolute;
+    left:-19px;
+    top:0;
+    width:36px;height:36px;
+    border-radius:50%;
+    background:var(--teal-dark);
+    color:var(--cream);
+    font-family:'Fraunces',serif;
+    font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tl-item h3{font-size:19px;margin-bottom:8px;}
+  .tl-item p{color:#4A5B58;font-size:15.5px;max-width:60ch;}
+
+  /* Terms strip */
+  .terms{background:var(--cream-2);}
+  .terms-list{
+    display:grid;
+    gap:22px;
+  }
+  .term-row{
+    display:grid;
+    grid-template-columns:210px 1fr;
+    gap:24px;
+    padding:20px 0;
+    border-top:1px solid #DEDACC;
+  }
+  .term-row:first-child{border-top:none;}
+  .term-row h3{font-size:16.5px;line-height:1.3;}
+  .term-row p{color:#4A5B58;font-size:15px;align-self:center;}
+
+  /* Team */
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:36px;
+  }
+  .team-card{
+    background:var(--cream);
+    border:1px solid var(--cream-2);
+    padding:36px;
+  }
+  .team-card .avatar{
+    width:56px;height:56px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    color:#fff;
+    margin-bottom:22px;
+  }
+  .team-card h3{font-size:21px;}
+  .team-card .role{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    color:var(--c-coral);
+    font-size:15px;
+    margin-top:4px;
+    margin-bottom:16px;
+  }
+  .team-card p.bio{color:#4A5B58;font-size:15px;margin-bottom:20px;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-size:12.5px;
+    padding:6px 12px;
+    border:1px solid #D9D3C2;
+    color:#3E4E4B;
+  }
+
+  /* Clients */
+  .clients{background:var(--teal-dark);}
+  .clients .section-head h2,.clients .section-head p{color:var(--cream);}
+  .clients .section-head p{color:#B9CFCA;}
+  .clients .section-head .kicker{color:var(--c-olive);}
+  .client-cloud{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .client-chip{
+    font-size:14.5px;
+    font-weight:500;
+    padding:11px 18px;
+    color:#DCEAE7;
+    border:1px solid rgba(255,255,255,0.16);
+  }
+  .clients .caption{
+    margin-top:36px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:18px;
+    color:#CFE0DC;
+    max-width:56ch;
+  }
+
+  /* Contact / footer */
+  footer{
+    background:var(--teal-dark-2);
+    color:var(--cream);
+    padding:80px 0 40px;
+  }
+  footer h2{
+    color:var(--cream);
+    font-size:clamp(30px,4vw,44px);
+  }
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:32px;
+    margin-top:36px;
+  }
+  .contact-links{display:flex;flex-direction:column;gap:6px;font-size:15.5px;}
+  .contact-links a{text-decoration:none;color:#B9CFCA;}
+  .contact-links a:hover{color:var(--cream);}
+  .location{color:#7EA39C;font-size:14.5px;}
+  .fine{
+    margin-top:60px;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    font-size:13px;
+    color:#5F827B;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (max-width:760px){
+    section{padding:64px 0;}
+    .navlinks{display:none;}
+    .why-grid,.service-list,.team-grid{grid-template-columns:1fr;}
+    .term-row{grid-template-columns:1fr;gap:6px;}
+    .contact-row{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="wordmark" href="#top"><img src="assets/atabay-logo.jpeg" alt="Atabay"></a>
+    <div class="navlinks">
+      <a href="#overview">Overview</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#team">Team</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<div id="top"></div>
+<section class="hero">
+  <div class="wrap">
+    <div class="logo-plate"><img src="assets/atabay-logo.jpeg" alt="Atabay"></div>
+    <div class="eyebrow">Association of Executive Search Consultants — Member Firm</div>
+    <h1>Partners to Leaders.</h1>
+    <p class="lede">Atabay Consulting is a boutique executive search and leadership consulting firm committed to connecting exceptional organizations with outstanding talent.</p>
+    <div class="tagline">Executive Search <span class="dot"></span> Leadership Consulting <span class="dot"></span> 2026</div>
+  </div>
+</section>
+<div class="swatches"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why Atabay</div>
+      <h2>A search practice built to be led, not managed.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="mark" style="background:var(--c-teal);">★</div>
+        <h3>AESC Member</h3>
+        <p>As members of the global Association of Executive Search Consultants, we operate under a strict code of ethics and professional standards.</p>
+      </div>
+      <div class="why-card">
+        <div class="mark" style="background:var(--c-purple);">◈</div>
+        <h3>Senior-Led Delivery</h3>
+        <p>Every engagement is led personally by a founding partner from brief to placement — no juniors running your search.</p>
+      </div>
+      <div class="why-card">
+        <div class="mark" style="background:var(--c-olive);">◉</div>
+        <h3>Retained Methodology</h3>
+        <p>Our retained model ensures full commitment, dedicated resources, and aligned incentives throughout the search process.</p>
+      </div>
+      <div class="why-card">
+        <div class="mark" style="background:var(--c-tan);">◆</div>
+        <h3>Industry Expertise</h3>
+        <p>Deep sector knowledge allows us to understand your business, benchmark the market, and identify truly qualified candidates.</p>
+      </div>
+      <div class="why-card">
+        <div class="mark" style="background:var(--c-coral);">⬟</div>
+        <h3>Discretion Guaranteed</h3>
+        <p>We treat every mandate with complete confidentiality, protecting both our clients and candidates throughout the process.</p>
+      </div>
+      <div class="why-card">
+        <div class="mark" style="background:var(--teal-dark);">●</div>
+        <h3>Long-Term Partnership</h3>
+        <p>We build lasting relationships — our goal is to become your trusted advisor on all leadership and talent matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">What We Do</div>
+      <h2>Six ways we help organizations find their next leaders.</h2>
+    </div>
+    <div class="service-list">
+      <div class="service-item">
+        <div class="num">01</div>
+        <div>
+          <h3>Board &amp; C-Level Leadership</h3>
+          <p>Sourcing and placing chairpersons, directors, CEOs, CFOs and other top-tier executives for public, private, and family enterprises.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="num">02</div>
+        <div>
+          <h3>Executive Search</h3>
+          <p>Retained search methodology for VP to Director-level functional leaders across all industries and disciplines.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="num">03</div>
+        <div>
+          <h3>Multi-Country Searches</h3>
+          <p>Coordinated simultaneous searches across geographies, leveraging our international network for regional mandates.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="num">04</div>
+        <div>
+          <h3>Market Benchmarks &amp; Talent Maps</h3>
+          <p>Competitive intelligence on talent availability, compensation trends, and organizational structures in your target market.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="num">05</div>
+        <div>
+          <h3>Compensation &amp; Benefits Advisory</h3>
+          <p>Data-driven analysis to design competitive packages that attract and retain top talent in Mexico and abroad.</p>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="num">06</div>
+        <div>
+          <h3>Management Consulting</h3>
+          <p>Organizational design, succession planning, leadership assessment, and HR strategy to future-proof your workforce.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Our Process</div>
+      <h2>Five stages, from brief to integration.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="dotnum">01</div>
+        <h3>Brief &amp; Alignment</h3>
+        <p>Deep dive into the organization, culture, and leadership requirements. We define success before starting.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dotnum">02</div>
+        <h3>Market Research</h3>
+        <p>Comprehensive talent mapping and identification of qualified candidates within the target pool.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dotnum">03</div>
+        <h3>Approach &amp; Assessment</h3>
+        <p>Discreet outreach and rigorous evaluation via competency-based interviews and reference checks.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dotnum">04</div>
+        <h3>Shortlist Presentation</h3>
+        <p>Presentation of a curated shortlist with detailed profiles, assessments, and our recommendations.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dotnum">05</div>
+        <h3>Offer &amp; Integration</h3>
+        <p>Compensation negotiation support and 90-day onboarding guidance to ensure a successful transition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="terms">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How We Work</div>
+      <h2>Terms &amp; conditions built around transparency.</h2>
+    </div>
+    <div class="terms-list">
+      <div class="term-row">
+        <h3>Maximum of 4 weeks for delivery</h3>
+        <p>Speed as a strategic advantage for the process.</p>
+      </div>
+      <div class="term-row">
+        <h3>Flat fees based on total first-year agreed cash compensation</h3>
+        <p>Transparency and aligned incentives from end to end.</p>
+      </div>
+      <div class="term-row">
+        <h3>No charge for additional administrative expenses</h3>
+        <p>Budget control with no surprises.</p>
+      </div>
+      <div class="term-row">
+        <h3>One-year guarantee from job offer acceptance date</h3>
+        <p>Guidance and follow-up with regular check-in calls to ensure the right fit in the long term.</p>
+      </div>
+      <div class="term-row">
+        <h3>Off-limits for the placed candidate for life</h3>
+        <p>The rest of the organization in Mexico will also be off-limits for 12 months.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Our Team</div>
+      <h2>Two founding partners, decades of placements.</h2>
+      <p>Atabay Consulting brings together experienced executive search professionals with proven track records in identifying and placing senior leaders across multiple industries. Our consultants combine international best practices with deep local market knowledge to deliver outstanding results.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar" style="background:var(--c-teal);">MG</div>
+        <h3>Mónica Graue</h3>
+        <div class="role">Partner &amp; Founder</div>
+        <p class="bio">Senior executive search consultant with extensive experience in C-suite and board-level placements across Mexico and Latin America. Mónica brings deep expertise in FMCG, financial services, and industrial sectors, with a proven track record of successful executive placements.</p>
+        <div class="tags">
+          <span class="tag">C-Suite &amp; Board Placements</span>
+          <span class="tag">FMCG &amp; Consumer Goods</span>
+          <span class="tag">Financial Services</span>
+          <span class="tag">Industrial &amp; Manufacturing</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="avatar" style="background:var(--c-purple);">JC</div>
+        <h3>Julio Castro</h3>
+        <div class="role">Partner</div>
+        <p class="bio">Experienced management consultant and executive search professional with a strong background in talent assessment and leadership consulting. Julio specializes in energy, technology, sports &amp; entertainment, digital transformation, and high-growth company mandates across Mexico and the Americas.</p>
+        <div class="tags">
+          <span class="tag">Technology &amp; Digital</span>
+          <span class="tag">High-Growth &amp; Startups</span>
+          <span class="tag">Sports &amp; Entertainment</span>
+          <span class="tag">Oil &amp; Gas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clients" class="clients">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Client Experience</div>
+      <h2>Searches completed for leading organizations across diverse industries.</h2>
+    </div>
+    <div class="client-cloud">
+      <span class="client-chip">Kaluz</span>
+      <span class="client-chip">Essity</span>
+      <span class="client-chip">Monte Xanic</span>
+      <span class="client-chip">HDI Seguros</span>
+      <span class="client-chip">Weatherford</span>
+      <span class="client-chip">Johnson Electric</span>
+      <span class="client-chip">PepsiCo</span>
+      <span class="client-chip">Grupo Altex</span>
+      <span class="client-chip">DuPont</span>
+      <span class="client-chip">Nazca</span>
+      <span class="client-chip">Visa</span>
+      <span class="client-chip">Hospital Chopo</span>
+      <span class="client-chip">Lala</span>
+      <span class="client-chip">FEMSA</span>
+      <span class="client-chip">FUNO</span>
+      <span class="client-chip">Nike</span>
+      <span class="client-chip">Samsung</span>
+      <span class="client-chip">Vemo</span>
+      <span class="client-chip">GIA</span>
+      <span class="client-chip">Laureate Education</span>
+      <span class="client-chip">Mobility ADO</span>
+      <span class="client-chip">Briq</span>
+    </div>
+    <p class="caption">Our consultants have partnered with global multinationals, leading Mexican conglomerates, and high-growth startups to identify transformational leaders.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk about your next leader.</h2>
+    <div class="contact-row">
+      <div class="contact-links">
+        <a href="mailto:monica.graue@mxatabay.com">Mónica Graue — monica.graue@mxatabay.com</a>
+        <a href="mailto:julio.castro@mxatabay.com">Julio Castro — julio.castro@mxatabay.com</a>
+      </div>
+      <div class="location">Mexico City, Mexico</div>
+    </div>
+    <div class="fine">
+      <span>© 2026 Atabay Consulting. Private and confidential.</span>
+      <span>Partners to Leaders</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
